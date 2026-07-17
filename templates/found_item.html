@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Found Item</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="/">
+🎓 Campus Lost & Found
+</a>
+
+<div>
+
+<a href="/" class="btn btn-outline-light btn-sm me-2">
+🏠 Home
+</a>
+
+<a href="/dashboard" class="btn btn-outline-light btn-sm me-2">
+📋 Dashboard
+</a>
+
+<a href="/lost_item" class="btn btn-outline-light btn-sm me-2">
+📄 Lost
+</a>
+
+<a href="/found_item" class="btn btn-outline-light btn-sm me-2">
+📦 Found
+</a>
+
+<a href="/search_items" class="btn btn-outline-light btn-sm me-2">
+🔍 Search
+</a>
+
+<a href="/" class="btn btn-light btn-sm">
+🚪 Logout
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<div class="container mt-5">
+
+<h2 class="text-center text-success mb-4">
+Report Found Item
+</h2>
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<form action="/found_item" method="POST">
+
+<div class="mb-3">
+<label>Item Name</label>
+<input type="text" name="item_name" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Category</label>
+<input type="text" name="category" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Location Found</label>
+<input type="text" name="location" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Date Found</label>
+<input type="date" name="date" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Description</label>
+<textarea name="description" class="form-control"></textarea>
+</div>
+
+<button type="submit" class="btn btn-success w-100">
+Submit Found Item
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

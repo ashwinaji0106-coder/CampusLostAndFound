@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Lost Items</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="/">
+🎓 Campus Lost & Found
+</a>
+
+<div>
+
+<a href="/" class="btn btn-outline-light btn-sm me-2">
+🏠 Home
+</a>
+
+<a href="/dashboard" class="btn btn-outline-light btn-sm me-2">
+📋 Dashboard
+</a>
+
+<a href="/lost_item" class="btn btn-outline-light btn-sm me-2">
+📄 Lost
+</a>
+
+<a href="/found_item" class="btn btn-outline-light btn-sm me-2">
+📦 Found
+</a>
+
+<a href="/search_items" class="btn btn-outline-light btn-sm me-2">
+🔍 Search
+</a>
+
+<a href="/" class="btn btn-light btn-sm">
+🚪 Logout
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<div class="container mt-5">
+
+    <h2 class="text-center text-primary mb-4">
+        Reported Lost Items
+    </h2>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Item Name</th>
+                <th>Category</th>
+                <th>Location</th>
+                <th>Date Lost</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for item in items %}
+
+            <tr>
+                <td>{{ item[1] }}</td>
+                <td>{{ item[2] }}</td>
+                <td>{{ item[3] }}</td>
+                <td>{{ item[4] }}</td>
+                <td>{{ item[5] }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>
