@@ -3,13 +3,16 @@ import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = "campuslostandfound"
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="root@0977",
-    database="lost_found_db"
-)
+import os
 
+db = mysql.connector.connect(
+    host=os.getenv("DB_HOST"),
+    port=int(os.getenv("DB_PORT")),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_NAME"),
+    ssl_ca="ca.pem"
+)
 cursor = db.cursor()
 
 # Home Page
