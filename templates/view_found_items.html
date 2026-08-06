@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Found Items</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>View Found Items</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:#eef8f0;
+}
+
+.card{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.table img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+h2{
+    color:#198754;
+    font-weight:bold;
+}
+
+</style>
+
 </head>
 
-<body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+<body>
+
+<nav class="navbar navbar-dark bg-success">
 
 <div class="container">
 
-<a class="navbar-brand fw-bold" href="/">
+<a class="navbar-brand fw-bold" href="/dashboard">
+
 🎓 Campus Lost & Found
+
 </a>
 
-<div>
+<a href="/dashboard" class="btn btn-light">
 
-<a href="/" class="btn btn-outline-light btn-sm me-2">
-🏠 Home
+Dashboard
+
 </a>
-
-<a href="/dashboard" class="btn btn-outline-light btn-sm me-2">
-📋 Dashboard
-</a>
-
-<a href="/lost_item" class="btn btn-outline-light btn-sm me-2">
-📄 Lost
-</a>
-
-<a href="/found_item" class="btn btn-outline-light btn-sm me-2">
-📦 Found
-</a>
-
-<a href="/search_items" class="btn btn-outline-light btn-sm me-2">
-🔍 Search
-</a>
-
-<a href="/" class="btn btn-light btn-sm">
-🚪 Logout
-</a>
-
-</div>
 
 </div>
 
@@ -51,41 +62,92 @@
 
 <div class="container mt-5">
 
-    <h2 class="text-center text-success mb-4">
-        Found Items
-    </h2>
+<div class="card p-4">
 
-    <table class="table table-bordered table-striped">
+<h2 class="text-center mb-4">
 
-        <thead class="table-dark">
-            <tr>
-                <th>Item Name</th>
-                <th>Category</th>
-                <th>Location</th>
-                <th>Date Found</th>
-                <th>Description</th>
-            </tr>
-        </thead>
+📦 Reported Found Items
 
-        <tbody>
+</h2>
 
-        {% for item in items %}
+<table class="table table-bordered table-hover align-middle">
 
-        <tr>
-            <td>{{ item[1] }}</td>
-            <td>{{ item[2] }}</td>
-            <td>{{ item[3] }}</td>
-            <td>{{ item[4] }}</td>
-            <td>{{ item[5] }}</td>
-        </tr>
+<thead class="table-success">
 
-        {% endfor %}
+<tr>
 
-        </tbody>
+<th>ID</th>
 
-    </table>
+<th>Image</th>
+
+<th>Item Name</th>
+
+<th>Category</th>
+
+<th>Location</th>
+
+<th>Date Found</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for item in items %}
+
+<tr>
+
+<td>{{ item[0] }}</td>
+
+<td>
+
+{% if item[6] %}
+
+<img src="{{ url_for('static', filename='uploads/' + item[6]) }}">
+
+{% else %}
+
+No Image
+
+{% endif %}
+
+</td>
+
+<td>{{ item[1] }}</td>
+
+<td>{{ item[2] }}</td>
+
+<td>{{ item[3] }}</td>
+
+<td>{{ item[4] }}</td>
+
+<td>{{ item[5] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<div class="text-center">
+
+<a href="/dashboard" class="btn btn-success">
+
+⬅ Back to Dashboard
+
+</a>
+
+</div>
+
+</div>
 
 </div>
 
 </body>
+
 </html>

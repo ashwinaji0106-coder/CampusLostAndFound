@@ -45,10 +45,31 @@ body{
 }
 
 </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 <body>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="container mt-3">
+
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+        {{ message }}
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+        </button>
+
+    </div>
+    {% endfor %}
+
+</div>
+{% endif %}
+{% endwith %}
 
 <div class="container">
 
@@ -67,7 +88,15 @@ body{
 <h4 class="title text-center mb-4">
 Campus Lost & Found
 </h4>
+{% if error %}
 
+<div class="alert alert-danger">
+
+{{ error }}
+
+</div>
+
+{% endif %}
 <form action="/login" method="POST">
 
 <div class="mb-3">
@@ -109,6 +138,7 @@ Forgot Password?
 </div>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
